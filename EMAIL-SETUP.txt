@@ -1,0 +1,52 @@
+CONNECT THE PORTFOLIO CONTACT FORM TO GMAIL
+Recipient: jomarirodriguez201@gmail.com
+
+HOW IT WORKS
+The website submits a standard POST to FormSubmit. FormSubmit then forwards the details to Gmail. Visitors do not need to open their own email application. The Gmail mailto link beside the form remains a separate option. This connection needs one-time confirmation in the recipient's inbox. It has not been activated or tested against your inbox by the editor.
+
+1. UPLOAD THE ENTIRE WEBSITE
+Extract the latest ZIP. Upload the contents of the jomari-portfolio folder to the public folder for your website: index.html, styles.css, script.js, README.txt, EMAIL-SETUP.txt, and the complete assets folder. On cPanel hosting this is commonly public_html, or the document root of your selected domain. Do not upload only styles.css: the Download CV buttons are in index.html.
+Keep the assets folder beside index.html. Do not rename the PDF unless you update both CV links in index.html.
+Open your public HTTPS website. Do not test the form by double-clicking index.html; file:// mode intentionally asks you to use the hosted website or send an email directly.
+Hard-refresh the page (Ctrl+Shift+R on Windows or Command+Shift+R on Mac), or open a private browser window to check the new version.
+
+2. CONFIRM THE DESTINATION IN THE HTML
+The contact form is already configured:
+<form id="contactForm" action="https://formsubmit.co/jomarirodriguez201@gmail.com" method="POST">
+The hidden _subject value is "New portfolio inquiry — Jomari Rodriguez".
+All visible fields have a name attribute so their values are submitted. The visitor's address is sent in name="email". FormSubmit uses this for Reply-To.
+No Gmail password, SMTP password, Google API key, or Gmail app password is required in this setup. Never put such credentials in index.html or script.js.
+
+3. SEND THE FIRST TEST FROM THE HOSTED SITE
+Open the contact section. Enter a test name, a second email address you control in the Email field, a service type, and a short message such as "Portfolio activation test".
+Click Send inquiry. The site continues to FormSubmit's verification page. Complete any CAPTCHA/verification shown there. Wait for the result page. Your first submission triggers the recipient confirmation process if this address has not already been activated.
+
+4. ACTIVATE THE RECIPIENT ADDRESS
+Sign into Gmail as jomarirodriguez201@gmail.com. Look in Inbox and Spam for the FormSubmit activation/confirmation email. You can search Gmail for "FormSubmit".
+Open that message and click its activation/confirmation link. Follow the confirmation page. If the message was in Spam, mark it Not spam.
+If you cannot find it, confirm the destination address above is spelled correctly, then try another test submission. Check Spam again. If it still does not arrive, use FormSubmit's Help page to contact the service.
+
+5. SEND A SECOND TEST AND CHECK DELIVERY
+Return to your hosted portfolio. Submit a new inquiry, with a unique message such as "Delivery test 2" and a second email address you control. Complete the verification again.
+In jomarirodriguez201@gmail.com, find the email with subject "New portfolio inquiry — Jomari Rodriguez". Check that your test name, email, service type, message, and page_url are present. The message is formatted as a table.
+Click Reply and confirm the recipient is the test address entered in the form. You do not need to send a reply to check this.
+The second delivered test confirms your setup. A local editor check cannot prove Gmail delivery without this activation and inbox check.
+
+6. CHECK THE NORMAL VISITOR EXPERIENCE
+Use a private browser window on your live site and submit another test if needed. Verify you can fill every field, continue to verification, complete it, and see the FormSubmit result page.
+The current form uses FormSubmit's default success page. It does not show an in-page "delivered" message before the service has received the submission.
+
+TROUBLESHOOTING
+- Form does not send from a downloaded file: open the hosted HTTPS page instead of file://.
+- Old buttons or portrait style still appear: upload the newest index.html AND styles.css, then hard-refresh. Confirm you updated the domain's actual public folder. The HTML includes a CSS version parameter to help refresh cached styles.
+- CV download fails: confirm assets/Polaris-Jumel-Dasmarinas-CV.pdf is present in the assets folder; both links point to it. Browser settings may open the downloaded PDF in a viewer.
+- Repeated activation emails: finish the recipient confirmation step.
+- No submission email: check recipient activation, Spam, and the exact action URL; repeat a distinct test.
+- Empty email fields: keep each field's name attribute. These are already included in this package.
+- Verification cannot load: check browser connectivity and whether an extension is blocking formsubmit.co. Try a private window with extensions disabled.
+- Changed the recipient email: update the form action plus the visible email link and script messages, then activate the new address and repeat the delivery test.
+
+OFFICIAL REFERENCES
+https://formsubmit.co/
+https://formsubmit.co/documentation
+https://formsubmit.co/help
