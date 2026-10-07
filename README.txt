@@ -14,18 +14,10 @@ WHAT'S INCLUDED
 - Keyboard-accessible project dialogs, mobile navigation, reduced-motion support, and visible focus styles.
 - Your existing portrait, education, contact details, and professional background.
 
-CONTACT FORM — INBOX DELIVERY
+CONTACT FORM — GMAIL DRAFT
 Recipient: jomarirodriguez201@gmail.com
-The form sends a standard HTTPS POST to FormSubmit, which forwards the submitted name, email, service type, message, and page URL to the recipient. It does not open the visitor's email app. Default FormSubmit reCAPTCHA is retained; the visitor completes verification on the next page.
-
-ONE-TIME ACTIVATION (REQUIRED)
-1. Upload the website to your host and open the hosted page (not file://).
-2. Submit one inquiry with test details you choose.
-3. Check jomarirodriguez201@gmail.com, including spam, for the FormSubmit confirmation message.
-4. Click its activation link.
-5. Submit a second test and verify the message arrives before making the form public.
-No Gmail password or API key belongs in these files. FormSubmit is a third-party form processor; the site states this beside the form. Submissions have not been sent or inbox delivery verified by the editor. Account activation, service availability, and spam filtering affect delivery.
-Official documentation: https://formsubmit.co/documentation
+The form builds a Gmail draft addressed to Jomari with the visitor's name, email, service type, message, and page URL. The visitor must sign in to Gmail if needed, review the draft, and click Send. Opening the draft does not send the inquiry. The email address link beside the form remains an option for visitors who use another email app.
+No activation, CAPTCHA, backend, or Gmail credentials are required for the website.
 
 LOGO
 assets/logo.svg is a true vector SVG on a transparent background, with the JR monogram traced from your supplied image and the thin circular rings recreated as vector circles. It has no embedded bitmap and does not depend on an installed font. The header and footer use it. The SVG favicon uses the traced monogram.
@@ -55,4 +47,4 @@ Replace a LeadConnector preview link with a public URL when that project goes li
 CV DOWNLOAD
 Download links are provided outside the collapsible navigation in the header and in the hero section. They use a native HTML download attribute and a local PDF asset, so no JavaScript or external document service is required. Include the PDF when uploading the assets folder. Download behavior can vary with browser settings.
 The supplied PDF is Polaris Jumel Dasmarinas's CV, not Jomari Rodriguez's. It is included exactly as requested, without editing its content. Its bundled filename is assets/Polaris-Jumel-Dasmarinas-CV.pdf. To substitute Jomari's CV, replace this asset and update the two download link paths and download filenames in index.html.
-The portrait uses its original uploaded colors, without CSS filters or a gradient overlay. Typography has been enlarged across the website. Download CV is always visible in the header, including mobile, and is a prominent button in the hero. See EMAIL-SETUP.txt for detailed activation, delivery tests, and troubleshooting.
+The portrait uses its original uploaded colors, without CSS filters or a gradient overlay. Typography has been enlarged across the website. Download CV is always visible in the header, including mobile, and is a prominent button in the hero.

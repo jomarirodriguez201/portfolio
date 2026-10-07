@@ -82,26 +82,33 @@ dialog.addEventListener('close', () => {
   document.body.classList.remove('dialog-open');
   opener?.focus();
 });
-// Native POST keeps delivery independent of JavaScript and retains FormSubmit's spam check.
-// Activate the recipient once, using the confirmation email after the first hosted submission.
 const form = document.getElementById('contactForm');
-const formNote = document.getElementById('formNote');
 form.addEventListener('submit', event => {
-  if (!form.reportValidity()) { event.preventDefault(); return; }
-  if (form.elements['_honey'].value) { event.preventDefault(); return; }
-  if (window.location.protocol === 'file:') {
-    event.preventDefault();
-    formNote.textContent = 'To send an inquiry, use the hosted website or email jomarirodriguez201@gmail.com directly.';
-    return;
-  }
-  document.getElementById('formSource').value = window.location.origin + window.location.pathname;
-  form.querySelector('button[type="submit"]').textContent = 'Continue to verification…';
-  formNote.textContent = 'Complete the verification on the next page to finish sending your inquiry.';
-  // No preventDefault: the browser posts the fields to the configured form endpoint.
-});
-window.addEventListener('pageshow', () => {
-  form.querySelector('button[type="submit"]').innerHTML = 'Send inquiry <span>↗</span>';
-  formNote.textContent = 'Your details are sent to Jomari via FormSubmit to respond to your inquiry.';
+  event.preventDefault();
+  if (!form.reportValidity()) return;
+
+  const name = form.elements.name.value.trim();
+  const email = form.elements.email.value.trim();
+  const service = form.elements.type.value;
+  const message = form.elements.message.value.trim();
+  const body = [
+    `Name: ${name}`,
+    `Email: ${email}`,
+    `Service: ${service}`,
+    '',
+    'Project details:',
+    message,
+    '',
+    `Sent from: ${window.location.href.split('#')[0]}`
+  ].join('\n');
+  const params = new URLSearchParams({
+    view: 'cm',
+    fs: '1',
+    to: 'jomarirodriguez201@gmail.com',
+    su: 'New portfolio inquiry — Jomari Rodriguez',
+    body
+  });
+  window.location.assign(`https://mail.google.com/mail/?${params}`);
 });
 document.getElementById('year').textContent = new Date().getFullYear();
 if ('IntersectionObserver' in window) {
